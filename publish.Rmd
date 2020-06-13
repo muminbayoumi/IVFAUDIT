@@ -1,0 +1,142 @@
+---
+title: "IVF Audit"
+author: "M.Mohamed,F.Binti Zahri"
+output:
+  pdf_document: 
+    number_sections: no
+    toc: yes
+    toc_depth: 4
+  html_notebook:
+    fig_caption: yes
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r load-packages,include=F}
+source("explore.r")
+library(tidyverse)
+library(ggnewscale)
+library(magrittr)
+library(here)
+library(RColorBrewer)
+library(forcats)
+library(extrafont)
+library(tableone)
+loadfonts()
+setwd(here::here())
+
+source('../RFunctions/colorize.R')
+```
+```{r include=F}
+knitr::opts_chunk$set(echo=F, error=F, fig.align='center', fig.height=4.5, fig.width=8, message=FALSE, warning=FALSE, dev='png', dpi=400)
+```
+
+\newpage
+
+
+## Are We Compliant with NICE Clinical Guidance No. 174?
+
+### Table 1.1 Overall Compliance Shown Over Weekdays vs Weekends
+#### It seems we have slightly worse performance over the weekend- Not statistically tested
+```{r}
+iv2 <- iv
+colnames(iv2) <-  savenames
+iv2[,17:19] %<>% lapply(.,factor,levels=c('Yes','No','Not Required'),ordered = T)
+a<- print(CreateTableOne(data = iv2[-c(1,2)],vars = colnames(iv2[-c(1,2,5)]),strata = colnames(iv2)[5],),printToggle = F,test = F,showAllLevels = T)
+
+a %<>% kableone(justify="left",)
+
+a
+
+
+```
+
+### Plot 1  IVF Requirment Documentation
+```{r}
+p1 <- ggplot(iv,aes(WD))+
+  geom_bar( aes(fill=IVDOC.notes),position = 'dodge')+
+  scale_fill_viridis_d(option = "cividis")+scale_y_continuous(n.breaks = 8)
+
+
+p1+labs(x="Day",y="Number of Patients",fill="IVF Requirment \ndocumented in notes")+ theme(title = element_text(face="bold"))
+
+
+```
+
+### Plot 2 Compliance to Appropriate Fluids Prescription
+```{r}
+p2 <- melt(iv,measure.vars =c('AppMain','AppReplace','AppResus'),value.name = "Indication") %>%
+  filter(Indication!="Not Required") %>%
+  ggplot(aes(variable,fill=fct_infreq(Indication)))+
+  geom_bar(position = 'dodge')+
+  scale_x_discrete(labels=c("Appropriate Maintenance","Appropriate Replacement"))+
+  scale_fill_viridis_d(option = "cividis")+
+  scale_y_continuous(n.breaks = 8)
+
+
+p2+ 
+  labs(  x="Indication",
+         y="Number of Patient",
+         fill=" Appropriate Fluid \nfor Indication Prescribed?")+
+  theme(title = element_text(face="bold"))
+```
+
+### Plot 3 Compliance to Daily Reviews and Proper Documentation
+```{r}
+prop1 <- melt(iv,measure.vars = names(iv[c(8,10:12)]),variable.name = "measuredindicator",value.name ="achieved" ) %>%
+  group_by(measuredindicator,achieved) %>%
+  summarise(count=sum((as.numeric(as.factor(achieved)))),prop=round(count/32,2)) %>% filter(achieved=="Yes")
+
+p3 <- melt(iv,measure.vars = names(iv[c(8,10:12)]),
+           variable.name = "measuredindicator",
+           value.name ="achieved" )%>% 
+  ggplot(aes(x=measuredindicator,fill=achieved))+geom_bar(position = "fill")+
+  scale_fill_viridis_d(option="cividis")+
+  geom_label(data=prop1,aes(x=measuredindicator,y=prop),label=prop1$prop)+
+  scale_x_discrete(labels=str_wrap(c("Weighed every 7 days","U&E's every 24 hours","Fluid Indication Noted In Plan","24 hour fluids prescribed or fluid plan documented"),15))
+
+p3 +
+  theme(title = element_text(face="bold"))+
+  labs(x="Measured Indicator",
+       y="Proportion of patients",
+       caption="Fluid Indication is one of 3 as per NICE guidance. Resus. Replace. Maintain",
+       fill="Has it been\nachieved?")
+
+```
+
+### Plot 4.1 Compliance to IVF Specifications
+```{r}
+prop2 <- melt(iv,measure.vars = names(iv[c(14:16)]),variable.name = "measuredindicator",value.name ="achieved" ) %>%
+  group_by(measuredindicator,achieved) %>%
+  summarise(count=sum((as.numeric(as.factor(achieved)))),prop=round(count/32,2)) %>% filter(achieved=="Yes")
+
+p4 <- 
+  melt(iv,measure.vars = names(iv[c(14:16)]),variable.name = "measuredindicator",value.name ="achieved" ) %>%
+  ggplot(aes(x=measuredindicator,fill=achieved))+geom_bar(position = "fill")+
+  scale_fill_viridis_d(option="cividis")+
+  geom_label(data=prop2,aes(x=measuredindicator,y=prop),label=prop2$prop)+
+  scale_x_discrete(labels=str_wrap(c("IVF Volume Noted","IVF Rate Noted","Maintaince dose IV K+ Prescribed"),15))
+p4 +
+  labs(x="Measured Indicator",
+       y="Proportion of patients",
+       caption="Daily Fluid Requirment: 25-30ml/Kg (20-25ml/Kg if frail or allowing for HF)
+             \nDaily Na+ & K+ Requirments : 1 mmol/Kg",
+       fill="Has it been\nachieved?")+
+  theme(title = element_text(face="bold"))
+```
+
+### Plot 4.2
+```{r}
+p5<- 
+  ggplot(iv,aes(fct_infreq(Composition)))+
+  geom_bar(fill="navy",alpha=0.7)+ 
+  scale_x_discrete(labels=lapply(as.character(levels(fct_infreq(iv$Composition))),str_wrap,15))            
+
+p5 +
+  labs(x="Composition",
+       fill="Appropriate Fluid for Indication Prescribed")+
+  theme(title = element_text(face="bold"))
+```
+
+Over 20 instances of IVF prescription recorded on overnight shift on nerver centre for period of assesment. 

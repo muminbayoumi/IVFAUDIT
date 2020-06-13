@@ -1,0 +1,33 @@
+Horodateur,Audit No,Specialty,Ward,Weekend / Weekday,Documentation in Patient notes to prescribe IVF,Fluid Status Documented on Notes,Weight Recorded in Last 7 days,Fluids Balance Recorded for last 24 H,U&E for last 24 Hours,Indication for IVF noted in the Plan?,IVF prescribed for 24H  or Fluid Plan noted,Composition,IVF Volume  Noted in Prescription,IVF Duration Noted,IV Potassium Prescribed?,Appropriate Fluids Prescribed? [Maintenance],Appropriate Fluids Prescribed? [Replacement],Appropriate Fluids Prescribed? [Resuscitation]
+10/03/2020 14:39:36,M1,General Surgery,5A,Week Day,Yes,Not Documented,Yes,Partial,Yes,No,Yes,.18% NACL 4% Dextrose,Yes,Yes,No,Yes,Not Required,Not Required
+10/03/2020 14:59:47,F1,General Surgery,5A,Week Day,Yes,Euvolemia (Documented as Such or implied by documentation of normal parameters),No,Yes,Yes,No,Yes,5D + .9NACL,Yes,Yes,Yes,Yes,Not Required,Not Required
+10/03/2020 15:29:37,F2,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,No,Hartmann's,Yes,Yes,No,No,Not Required,Not Required
+10/03/2020 15:49:17,F3,Vascular Surgery,5B,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,No,Yes,No,Yes,0.45% Nacl + 5D,Yes,Yes,Yes,No,Not Required,Not Required
+10/03/2020 15:56:15,F4,General Surgery,5B,Week Day,Yes,Not Documented,Yes,Yes,Yes,No,No,Hartmann's,Yes,Yes,No,No,Not Required,Not Required
+10/03/2020 16:54:27,M2,General Surgery,1B,Week Day,Yes,Not Documented,Yes,Yes,Yes,No,Yes,Hartmann's,Yes,Yes,No,Not Required,Yes,Not Required
+11/03/2020 17:34:29,M3,General Surgery,5A,Week Day,Yes,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Partial,Yes,Yes,Yes,0.45% NACL + 5% Dextrose,Yes,Yes,Yes,Yes,Yes,Not Required
+11/03/2020 17:59:04,M4,General Surgery,5A,Week Day,Yes,Not Documented,Yes,No,Yes,No,No,Hartmann's,Yes,Yes,No,Yes,Not Required,Not Required
+11/03/2020 18:03:00,M5,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,Yes,No,Hartmann's,Yes,Yes,No,No,Not Required,Not Required
+11/03/2020 18:23:38,M6,General Surgery,5A,Week Day,Yes,Not Documented,Yes,Partial,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,Yes,Not Required,Not Required
+12/03/2020 15:55:18,F6,General Surgery,5A,Week Day,Yes,Not Documented,Yes,Yes,Yes,No,Yes,0.45% NaCl + 5D,Yes,Yes,Yes,Not Required,Not Required,Not Required
+12/03/2020 16:04:44,F6 corrected,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,No,Yes,.45% NaCl + 5D,Yes,Yes,Yes,Yes,Not Required,Not Required
+12/03/2020 16:08:50,F7,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,Yes,.18% NACL 4% Dextrose,Yes,Yes,Yes,No,Not Required,Not Required
+12/03/2020 16:16:27,F8,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,No,Hartmann's,Yes,Yes,No,No,Not Required,Not Required
+12/03/2020 16:28:30,F9,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,No,Not Required,Not Required
+14/03/2020 02:04:57,M7,General Surgery,5A,Week End,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,Yes,Not Required,Not Required
+14/03/2020 21:04:04,M8,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,No,Not Required,No,Not Required
+14/03/2020 21:24:44,M8,General Surgery,5A,Week End,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,No,No,Hartmann's,Yes,Yes,No,Not Required,Yes,Not Required
+14/03/2020 21:36:56,M9,General Surgery,5A,Week End,No,Not Documented,Yes,Partial,Yes,No,Yes,.18% NACL 4% Dextrose,Yes,Yes,Yes,Yes,Not Required,Not Required
+14/03/2020 21:50:26,M10,General Surgery,5A,Week End,Yes,Not Documented,Yes,Yes,Yes,Yes,Yes,Hartmann's,Yes,Yes,Yes,Not Required,Yes,Not Required
+16/03/2020 03:02:50,M11,General Surgery,5A,Week End,No,Not Documented,Yes,Yes,No,No,No,Non prescrived,No,No,No,No,Not Required,Not Required
+16/03/2020 04:24:11,M13,General Surgery,5A,Week End,No,Not Documented,Yes,Yes,No,Yes,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,Yes,Not Required,Not Required
+16/03/2020 04:54:59,M14,General Surgery,5A,Week End,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,Yes,Yes,.18% NACL 4% Dextrose,Yes,Yes,Yes,No,Not Required,Not Required
+19/03/2020 13:05:18,F10,General Surgery,5A,Week Day,Yes,Not Documented,Yes,Yes,Yes,No,No,0.45% NaCl + 5D,Yes,Yes,Yes,No,Not Required,Not Required
+19/03/2020 13:10:50,F11,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Partial,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,No,No,Not Required,Not Required
+19/03/2020 13:25:20,F12,General Surgery,5A,Week Day,Yes,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Yes,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,No,Not Required,Not Required
+19/03/2020 13:35:42,F13,General Surgery,5A,Week Day,Yes,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Yes,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,Yes,No,Not Required,Not Required
+21/03/2020 15:01:23,F13,General Surgery,5A,Week Day,Yes,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Yes,Yes,No,Yes,"2 × .18% Nacl 4D, 1 × Hartmann",Yes,Yes,Yes,No,Not Required,Not Required
+21/03/2020 15:07:42,F14,General Surgery,5A,Week Day,No but prescribed in Drug Chart,Not Documented,Yes,Yes,Yes,No,Yes,Insulin sliding scale fluid,Yes,Yes,Yes,Yes,Not Required,Not Required
+21/03/2020 15:19:37,F15,General Surgery,5A,Week End,Yes,"Hypovolemia (Any 2 of low JVP, High PR, Low BP , Prolonged CRT)",Yes,No,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,No,No,Not Required,Not Required
+21/03/2020 15:26:12,F16,General Surgery,5A,Week End,No but prescribed in Drug Chart,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Yes,Yes,No,No,0.9% NACL,Yes,Yes,No,No,Not Required,Not Required
+21/03/2020 15:32:34,F17,General Surgery,5A,Week End,No but prescribed in Drug Chart,Euvolemia (Documented as Such or implied by documentation of normal parameters),Yes,Yes,Yes,No,No,.18% NACL 4% Dextrose,Yes,Yes,No,No,Not Required,Not Required
