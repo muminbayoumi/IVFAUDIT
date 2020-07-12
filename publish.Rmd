@@ -57,8 +57,10 @@ a
 p1 <- ggplot(iv,aes(WD))+
   geom_bar( aes(fill=IVDOC.notes),position = 'dodge')+
   scale_fill_viridis_d(option = "cividis")+scale_y_continuous(n.breaks = 8)
+```
 
 
+```{r}
 p1+labs(x="Day",y="Number of Patients",fill="IVF Requirment \ndocumented in notes")+ theme(title = element_text(face="bold"))
 
 
@@ -138,5 +140,48 @@ p5 +
        fill="Appropriate Fluid for Indication Prescribed")+
   theme(title = element_text(face="bold"))
 ```
+```{r}
+p2 <- melt(iv,measure.vars =c('AppMain','AppReplace','AppResus'),value.name = "Indication") %>%
+  filter(Indication!="Not Required") %>%
+  ggplot(aes(variable,fill=fct_infreq(Indication)))+
+  geom_bar(position = 'dodge')+
+  scale_x_discrete(labels=c("Appropriate Maintenance","Appropriate Replacement"))+
+  scale_fill_viridis_d(option = "cividis")+
+  scale_y_continuous(n.breaks = 8)
 
-Over 20 instances of IVF prescription recorded on overnight shift on nerver centre for period of assesment. 
+
+p2+ 
+  labs(  x="Indication",
+         y="Number of Patient",
+         fill=" Appropriate Fluid \nfor Indication Prescribed?")+
+  theme(title = element_text(face="bold"))
+
+
+
+iv %>% filter(AppMain!="Not Required",)%>%  ggplot( aes(fct_infreq(Composition),fill=AppMain))+
+  geom_bar()+
+  scale_fill_viridis_d(option = "cividis")+
+  labs(title="Was Appropriate Maintenance Fluid Type Prescribed?",x="Fluid Composittion",fill="Appropriate Maintenance \nFluid Prescribed")
+
+iv %>% filter(AppReplace!="Not Required",)%>%  ggplot( aes(fct_infreq(Composition),fill=AppReplace))+
+  geom_bar()+
+  scale_fill_viridis_d(option = "cividis")+
+  labs(title="Was Appropriate Replacement Fluid Type Prescribed?",x="Fluid Composittion",fill="Appropriate Maintenance \nFluid Prescribed")
+```
+
+Over 20 instances of IVF prescription recorded on overnight shift on nerver centre for period of assesment.
+
+
+
+### Fluid Status Assement
+```{r}
+p <- iv %>% ggplot(aes(x=FluidStatusDOC,fill=FluidStatusDOC))+
+  geom_bar() +
+  scale_fill_viridis_d(option = "cividis")+
+  labs(x=NULL,fill="Fluid Status") + 
+  theme(axis.text.x =element_blank(), 
+    legend.position = "bottom", legend.direction = "horizontal")
+ggsave(plot=p,'fluidstat',device = 'png',dpi = 410)
+p
+
+```
